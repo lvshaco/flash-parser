@@ -25,6 +25,7 @@ function pub(dir, file) {
                 fl.trace("changing " + file + ':'+ item.name + '->' + fixed_name);
                 item.name = fixed_name
             }
+            
             item.exportToFile("file:///" + dir + '/__tmp/singleimg/' + item.name, 100)
         }
     }

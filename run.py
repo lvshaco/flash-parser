@@ -66,7 +66,7 @@ OUTPUT_PATH = OUTPUT_PATH or DIR_PATH + SEP + 'output'
 FLASH_ROOT = FLASH_ROOT or DIR_PATH + SEP + 'input'
 FLASH_ROOT = os.path.realpath(FLASH_ROOT)
 OUTPUT_PATH = os.path.realpath(OUTPUT_PATH)
-CONVERT_PATH = SCRIPT_PATH + SEP + 'convert '
+CONVERT_PATH = 'convert '
 
 if not os.path.exists(OUTPUT_PATH):
     os.makedirs(OUTPUT_PATH)
@@ -130,7 +130,7 @@ class MainTree():
         self.PreHandleMirror()
         self.RemoveAnchorPng()
         self.TexturePacker()
-        if os.path.isfile(self.tmpPath + SEP + "%s.png "%OUTPUT_NAME):
+        if os.path.isfile(self.tmpPath + SEP + "%s.png"%OUTPUT_NAME):
             self.ImageMagicka()
             self.WriteOriginImgSizeInfo()
         else:
@@ -207,6 +207,7 @@ class MainTree():
 
 
     def Clean(self):
+        #return
         while os.path.exists(self.tmpPath):
             try:
                 shutil.rmtree(self.tmpPath)
@@ -250,7 +251,7 @@ class MainTree():
             tpath = tpath.replace('/','\\')
             imgpath = imgpath.replace('/','\\')
         files = os.listdir(imgpath)
-        identify_path = SCRIPT_PATH + SEP + 'identify '
+        identify_path = 'identify '
         if sysType == "Windows":
             identify_path = SCRIPT_PATH + SEP + 'identify.exe '
         for k in files:
@@ -336,8 +337,8 @@ class MainTree():
                 '--size-constraints AnySize',
                 '--max-width 2048',
                 '--max-height 2048',
-                '--common-division-x 2',
-                '--common-division-y 2',
+                #'--common-division-x 2',
+                #'--common-division-y 2',
                 #'--shape-debug',
                 '%s' %  (tpath + os.path.sep + 'singleimg')
                 ])
