@@ -261,7 +261,7 @@ class Handler():
         for name, desc in self.picLib.items():
             dp.ChildBegin()
             dp.Oneline('id', self.idTable[name])
-            dp.Oneline('name', name)
+            dp.Oneline('export', name)
             dp.Append(desc + ',')
             dp.Oneline('type', 'picture')
             dp.ChildEnd()
